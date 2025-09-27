@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Windows XP style scrollbars */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 1px solid #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+  border: 1px solid #808080;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d0d0d0, #b0b0b0);
+}
+
+/* Windows XP button styles */
+.windows-xp-button {
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+  border: 1px solid #808080;
+  border-bottom-color: #404040;
+  border-right-color: #404040;
+  padding: 2px 8px;
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  font-size: 11px;
+}
+
+.windows-xp-button:hover {
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+}
+
+.windows-xp-button:active {
+  background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
+  border-top-color: #404040;
+  border-left-color: #404040;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+}
+
+/* Chaotic animations */
+@keyframes chaos {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(1deg) scale(1.01); }
+  50% { transform: rotate(-1deg) scale(0.99); }
+  75% { transform: rotate(0.5deg) scale(1.005); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes wiggle {
+  0%, 7% { transform: rotateZ(0); }
+  15% { transform: rotateZ(-15deg); }
+  20% { transform: rotateZ(10deg); }
+  25% { transform: rotateZ(-10deg); }
+  30% { transform: rotateZ(6deg); }
+  35% { transform: rotateZ(-4deg); }
+  40%, 100% { transform: rotateZ(0); }
+}
+
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  16% { color: #ff8000; }
+  33% { color: #ffff00; }
+  50% { color: #00ff00; }
+  66% { color: #0080ff; }
+  83% { color: #8000ff; }
+  100% { color: #ff0000; }
+}
+
+.chaos-text {
+  animation: rainbow 2s infinite;
+}
+
+.chaos-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
