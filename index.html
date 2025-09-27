@@ -6,6 +6,11 @@
     <title>Digital Baggage Drop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #0080ff, #004080);
+        }
+        
         .bag-animation {
             transition: all 0.5s ease-in-out;
         }
@@ -41,79 +46,143 @@
             0% { transform: translateY(-50px) scale(1); opacity: 1; }
             100% { transform: translateY(100px) scale(0.3); opacity: 0; }
         }
+        
+        .windows-xp-window {
+            background: #c0c0c0;
+            border: 2px outset #c0c0c0;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .windows-xp-titlebar {
+            background: linear-gradient(to bottom, #0080ff, #004080);
+            color: white;
+            padding: 4px 8px;
+            border-bottom: 1px solid #004080;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        
+        .windows-xp-button {
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+            border: 1px outset #c0c0c0;
+            padding: 2px 8px;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        
+        .windows-xp-button:hover {
+            background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+        }
+        
+        .windows-xp-button:active {
+            background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
+            border: 1px inset #c0c0c0;
+        }
+        
+        .windows-xp-input {
+            background: white;
+            border: 1px inset #c0c0c0;
+            padding: 2px 4px;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 11px;
+        }
+        
+        .windows-xp-textarea {
+            background: white;
+            border: 1px inset #c0c0c0;
+            padding: 2px 4px;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 11px;
+            resize: none;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 flex items-center justify-center p-4">
-    <div class="w-full max-w-4xl text-center">
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl">
         
-        <!-- Main Bag View -->
-        <div id="mainView">
-            <div class="mb-8">
-                <img id="bagImage" src="bag.jpg" alt="Closed Bag" class="mx-auto w-64 h-64 object-contain drop-shadow-lg bag-animation">
+        <!-- Windows XP Title Bar -->
+        <div class="windows-xp-titlebar flex items-center justify-between">
+            <div class="flex items-center space-x-1">
+                <div class="w-3 h-3 bg-yellow-400 border border-yellow-500 rounded-sm"></div>
+                <div class="w-3 h-3 bg-green-400 border border-green-500 rounded-sm"></div>
+                <div class="w-3 h-3 bg-red-400 border border-red-500 rounded-sm"></div>
             </div>
-            <h2 class="text-2xl font-bold text-white mb-4">
-                Digital Baggage Drop
-            </h2>
-            <p class="text-gray-300 mb-8 max-w-md mx-auto">
-                Click to open the bag and drop your worries
-            </p>
-            <button onclick="openBag()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg">
-                Open Bag
-            </button>
+            <span>Digital Baggage Drop</span>
+            <div class="w-3 h-3"></div>
         </div>
-
-        <!-- Drop Interface -->
-        <div id="dropView" style="display: none;">
-            <div class="mb-8">
-                <img id="bagImage2" src="bag.jpg" alt="Open Bag" class="mx-auto w-64 h-64 object-contain drop-shadow-lg bag-animation bag-open">
-            </div>
-            <h2 class="text-2xl font-bold text-white mb-4">
-                Drop Your Worries
-            </h2>
-            
-            <!-- Text Input -->
-            <div class="mb-4">
-                <input type="text" id="textInput" placeholder="Type something..." class="px-4 py-2 rounded border mb-2 w-64">
-                <br>
-                <button onclick="addTextItem()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
-                    Add Text
+        
+        <!-- Main Window -->
+        <div class="windows-xp-window">
+            <!-- Main Bag View -->
+            <div id="mainView" class="p-6 text-center">
+                <div class="mb-8">
+                    <img id="bagImage" src="bag.jpg" alt="Closed Bag" class="mx-auto w-64 h-64 object-contain bag-animation">
+                </div>
+                <h2 class="text-2xl font-bold text-black mb-4">
+                    Digital Baggage Drop
+                </h2>
+                <p class="text-gray-700 mb-8 max-w-md mx-auto">
+                    Click to open the bag and drop your worries
+                </p>
+                <button onclick="openBag()" class="windows-xp-button text-lg py-2 px-6">
+                    Open Bag
                 </button>
             </div>
-            
-            <!-- Image Upload -->
-            <div class="mb-4">
-                <input type="file" id="imageInput" accept="image/*" class="mb-2">
-                <br>
-                <button onclick="addImageItem()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded">
-                    Add Image
+
+            <!-- Drop Interface -->
+            <div id="dropView" style="display: none;" class="p-6 text-center">
+                <div class="mb-8">
+                    <img id="bagImage2" src="bag.jpg" alt="Open Bag" class="mx-auto w-64 h-64 object-contain bag-animation bag-open">
+                </div>
+                <h2 class="text-2xl font-bold text-black mb-4">
+                    Drop Your Worries
+                </h2>
+                
+                <!-- Text Input -->
+                <div class="mb-4">
+                    <input type="text" id="textInput" placeholder="Type something..." class="windows-xp-input mb-2 w-64">
+                    <br>
+                    <button onclick="addTextItem()" class="windows-xp-button">
+                        Add Text
+                    </button>
+                </div>
+                
+                <!-- Image Upload -->
+                <div class="mb-4">
+                    <input type="file" id="imageInput" accept="image/*" class="mb-2">
+                    <br>
+                    <button onclick="addImageItem()" class="windows-xp-button">
+                        Add Image
+                    </button>
+                </div>
+                
+                <!-- Items List -->
+                <div id="itemsList" class="mb-6">
+                    <h3 class="text-black mb-2">Items in bag:</h3>
+                    <div id="itemsContainer" class="space-y-2"></div>
+                </div>
+                
+                <button onclick="closeBag()" class="windows-xp-button text-lg py-2 px-6">
+                    Close Bag & Send Away
                 </button>
             </div>
-            
-            <!-- Items List -->
-            <div id="itemsList" class="mb-6">
-                <h3 class="text-white mb-2">Items in bag:</h3>
-                <div id="itemsContainer" class="space-y-2"></div>
-            </div>
-            
-            <button onclick="closeBag()" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg">
-                Close Bag & Send Away
-            </button>
-        </div>
 
-        <!-- Ant Sequence -->
-        <div id="antView" style="display: none;">
-            <div class="mb-8">
-                <img id="antImage" src="sad-ant-with-bindle.jpg" alt="Ant with bag" class="mx-auto w-80 h-64 object-contain drop-shadow-lg">
+            <!-- Ant Sequence -->
+            <div id="antView" style="display: none;" class="p-6 text-center">
+                <div class="mb-8">
+                    <img id="antImage" src="sad-ant-with-bindle.jpg" alt="Ant with bag" class="mx-auto w-80 h-64 object-contain">
+                </div>
+                <h2 class="text-2xl font-bold text-black mb-4">
+                    Your worries are being carried away
+                </h2>
+                <p class="text-gray-700 mb-8">
+                    The ant is taking your baggage into the sunset
+                </p>
+                <button onclick="startOver()" class="windows-xp-button text-lg py-2 px-6">
+                    Start Over
+                </button>
             </div>
-            <h2 class="text-2xl font-bold text-white mb-4">
-                Your worries are being carried away
-            </h2>
-            <p class="text-gray-300 mb-8">
-                The ant is taking your baggage into the sunset
-            </p>
-            <button onclick="startOver()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg">
-                Start Over
-            </button>
         </div>
         
     </div>
