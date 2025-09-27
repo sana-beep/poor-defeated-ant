@@ -1,0 +1,28 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore node modules if we ever add any
+node_modules/
+
+# Ignore any build artifacts
+dist/
+build/
+
+# Ignore any environment files
+.env
+.env.local
+.env.production
+
+# This app is so useless, we don't even need to ignore much
